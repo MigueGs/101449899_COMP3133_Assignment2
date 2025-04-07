@@ -1,0 +1,21 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - MONGODB_URI=mongodb+srv://miguelgutiserrano:<db_password>@cluster0.hhfnq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - JWT_SECRET=93aB^x$E76oPp!fL02mW@zQ4%
+      - TOKEN_EXPIRES_IN=1h
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+
